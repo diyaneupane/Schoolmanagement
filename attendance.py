@@ -4,14 +4,14 @@ import json
 import os
 from datetime import datetime
 
-# Hardcoded login credentials
+
 USERNAME = "admin"
 PASSWORD = "password123"
 
-# File to store data
+
 DATA_FILE = "data.json"
 
-# Load data from file
+
 if os.path.exists(DATA_FILE):
     try:
         with open(DATA_FILE, "r") as file:
@@ -29,14 +29,13 @@ if os.path.exists(DATA_FILE):
 else:
     data = {"students": [], "teachers": [], "attendance": {}, "fees": {}}
 
-# Function to save data to file
 def save_data():
     with open(DATA_FILE, "w") as file:
         json.dump(data, file, indent=4)
 
 
    
-# Dashboard Function
+
 def open_dashboard():
     global dashboard
     dashboard = tk.Tk()
@@ -60,7 +59,6 @@ def open_dashboard():
     dashboard.mainloop()
 
 
-# Function to Mark Attendance
 def mark_attendance_page():
     attendance_window = tk.Toplevel(dashboard)
     attendance_window.title("Mark Attendance")
@@ -110,7 +108,7 @@ def save_attendance(selected_class, date, attendance_status, window):
     messagebox.showinfo("Success", "Attendance marked successfully!")
     window.destroy()
 
-# Function to View Attendance Records
+
 def view_attendance_records():
     attendance_window = tk.Toplevel(dashboard)
     attendance_window.title("View Attendance Records")
